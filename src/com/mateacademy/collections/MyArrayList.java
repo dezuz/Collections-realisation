@@ -22,8 +22,14 @@ public class  MyArrayList <T> implements MyList<T>, Cloneable{
 
     @Override
     public T get(int index) {
-        if (index > this.size ) {
-            throw new ArrayIndexOutOfBoundsException(index);
+        if (index < 0) {
+            System.out.println("Please write a valid index");
+            return null;
+        }
+        else {
+            if (index > this.size) {
+                throw new ArrayIndexOutOfBoundsException(index);
+            }
         }
         return (T)elements[index];
     }
@@ -39,8 +45,13 @@ public class  MyArrayList <T> implements MyList<T>, Cloneable{
 
     @Override
     public void remove(int index) {
-        if (index > this.size ) {
-            throw new ArrayIndexOutOfBoundsException(index);
+        if (index < 0) {
+            System.out.println("Please write a valid index");
+        }
+        else {
+            if (index > this.size) {
+                throw new ArrayIndexOutOfBoundsException(index);
+            }
         }
 
         int numberMoved = size - index;
