@@ -22,6 +22,9 @@ public class MyStack<T> {
     }
 
     public void remove() {
+        if (size == 0) {
+            throw new ArrayIndexOutOfBoundsException("size can't be less than 0");
+        }
         elements = Arrays.copyOf(elements, --size);
     }
 

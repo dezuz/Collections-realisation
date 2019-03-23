@@ -15,12 +15,10 @@ public class  MyArrayList <T> implements MyList<T>, Cloneable{
         elements = new Object[size];
     }
 
-    @Override
     protected Object clone() throws CloneNotSupportedException {
         return super.clone();
     }
 
-    @Override
     public T get(int index) {
         if (index < 0 || index > this.size) {
             throw new ArrayIndexOutOfBoundsException("Index: " + index + ", Size: " + size);
@@ -29,7 +27,6 @@ public class  MyArrayList <T> implements MyList<T>, Cloneable{
         return (T)elements[index];
     }
 
-    @Override
     public void add(T t) {
         if (size >= elements.length) {
             elements = Arrays.copyOf(elements, elements.length * 2);
@@ -38,7 +35,6 @@ public class  MyArrayList <T> implements MyList<T>, Cloneable{
         elements[size++] = t;
     }
 
-    @Override
     public void remove(int index) {
         if (index < 0) {
             throw new ArrayIndexOutOfBoundsException("Index: " + index + ", Size: " + size);
@@ -57,7 +53,6 @@ public class  MyArrayList <T> implements MyList<T>, Cloneable{
         elements[--size] = null;
     }
 
-    @Override
     public int size() {
         return size;
     }
