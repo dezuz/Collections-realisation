@@ -5,6 +5,7 @@ public class MyLinkedList<T> implements MyList<T> {
     private Node<T> first;
     private Node<T> last;
 
+    @Override
     public T get(int index) {
         checkForIndexException(index);
         Node<T> elem = first;
@@ -14,6 +15,7 @@ public class MyLinkedList<T> implements MyList<T> {
         return elem.item;
     }
 
+    @Override
     public void add(T t) {
         Node<T> node;
         if (size == 0) {
@@ -29,6 +31,7 @@ public class MyLinkedList<T> implements MyList<T> {
         size++;
     }
 
+    @Override
     public void remove(int index) {
         checkForIndexException(index);
 
@@ -57,6 +60,7 @@ public class MyLinkedList<T> implements MyList<T> {
         size--;
     }
 
+    @Override
     public int size() {
         return size;
     }
