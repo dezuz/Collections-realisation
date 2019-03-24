@@ -1,7 +1,9 @@
 package com.mateacademy.collections;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.assertEquals;
 
@@ -16,6 +18,9 @@ public class MyStackTest {
         }
     }
 
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
+
     @Test
     public void testRemoveMethod() {
         Integer expected = 4;
@@ -25,8 +30,10 @@ public class MyStackTest {
         assertEquals(expected, actual);
     }
 
-    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    @Test
     public void testRemoveMethodToException() {
+        exception.expect(ArrayIndexOutOfBoundsException.class);
+        exception.expectMessage("size can't be less than 0");
         myStack.clear();
         myStack.remove();
     }

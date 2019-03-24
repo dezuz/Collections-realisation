@@ -1,7 +1,9 @@
 package com.mateacademy.collections;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.assertEquals;
 
@@ -15,6 +17,9 @@ public class MyLinkedListTest {
             myLinkedList.add(i * i);
         }
     }
+
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
 
     @Test
     public void testGetMethod() {
@@ -32,8 +37,10 @@ public class MyLinkedListTest {
         assertEquals(expected, actual);
     }
 
-    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    @Test
     public void testGetMethodToException() {
+        exception.expect(ArrayIndexOutOfBoundsException.class);
+        exception.expectMessage("Index is lower than size");
         myLinkedList.get(-1);
     }
 
@@ -46,8 +53,10 @@ public class MyLinkedListTest {
         assertEquals(expected, actual);
     }
 
-    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    @Test
     public void testRemoveMethodToException() {
+        exception.expect(ArrayIndexOutOfBoundsException.class);
+        exception.expectMessage("Index is lower than size");
         myLinkedList.remove(-1);
     }
 

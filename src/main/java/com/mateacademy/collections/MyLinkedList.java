@@ -82,7 +82,7 @@ public class MyLinkedList<T> implements MyList<T> {
 
     private void checkForIndexException(int index) {
         if (index >= size || index < 0) {
-            throw new ArrayIndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+            throw new ArrayIndexOutOfBoundsException("Index is lower than size");
         }
     }
 

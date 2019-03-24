@@ -1,7 +1,9 @@
 package com.mateacademy.collections;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.assertEquals;
 
@@ -27,6 +29,9 @@ public class MyArrayListTest {
 
     }
 
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
+
     @Test
     public void testGetMethodToReturnCorrectElement() {
         Object expected = elements[2];
@@ -43,8 +48,10 @@ public class MyArrayListTest {
         assertEquals(elements[4], myArrayList.get(4));
     }
 
-    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    @Test
     public void testGetMethodToExceptions() {
+        exception.expect(ArrayIndexOutOfBoundsException.class);
+        exception.expectMessage("Index is lower than size");
         myArrayList.get(-1);
     }
 
@@ -57,9 +64,18 @@ public class MyArrayListTest {
         assertEquals(expected, actual);
     }
 
-    @Test(expected = ArrayIndexOutOfBoundsException.class)
-    public void testRemoveMethodToExceptions() {
-       myArrayList.remove(-1);
+    @Test
+    public void testRemoveMethodIndexIsLowerThanZero() {
+        exception.expect(ArrayIndexOutOfBoundsException.class);
+        exception.expectMessage("Index is lower than size");
+        myArrayList.remove(-1);
+    }
+
+    @Test
+    public void testRemoveMethodIndexIsOverSize() {
+        exception.expect(ArrayIndexOutOfBoundsException.class);
+        exception.expectMessage("Index is over size");
+        myArrayList.remove(6);
     }
 
     @Test
