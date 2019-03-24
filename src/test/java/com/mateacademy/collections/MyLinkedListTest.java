@@ -24,6 +24,14 @@ public class MyLinkedListTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void testAddMethod() {
+        Integer expected = 16;
+        myLinkedList.add(16);
+        Integer actual = myLinkedList.get(4);
+        assertEquals(expected, actual);
+    }
+
     @Test(expected = ArrayIndexOutOfBoundsException.class)
     public void testGetMethodToException() {
         myLinkedList.get(-1);
@@ -59,5 +67,4 @@ public class MyLinkedListTest {
 
         assertEquals(expected, actual);
     }
-
 }

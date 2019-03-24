@@ -39,10 +39,8 @@ public class  MyArrayList <T> implements MyList<T>, Cloneable{
         if (index < 0) {
             throw new ArrayIndexOutOfBoundsException("Index: " + index + ", Size: " + size);
         }
-        else {
-            if (index > this.size) {
-                throw new ArrayIndexOutOfBoundsException(index);
-            }
+        if (index > this.size) {
+            throw new ArrayIndexOutOfBoundsException(index);
         }
 
         int numberMoved = size - index;

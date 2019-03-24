@@ -72,6 +72,4 @@ public class MyStackTest {
 
         assertEquals(expected, actual);
     }
-
-
 }

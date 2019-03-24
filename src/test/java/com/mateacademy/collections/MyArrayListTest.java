@@ -35,6 +35,14 @@ public class MyArrayListTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void testAddMethod() {
+        elements[4] = 16;
+        myArrayList.add(16);
+
+        assertEquals(elements[4], myArrayList.get(4));
+    }
+
     @Test(expected = ArrayIndexOutOfBoundsException.class)
     public void testGetMethodToExceptions() {
         myArrayList.get(-1);
